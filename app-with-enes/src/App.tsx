@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src="https://cdn.unitycms.io/image/ocroped/1200,1200,1000,1000,0,0/fek50eru4kc/8joql_sD4xIBKr1PxFhVxC.jpg"/>
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
