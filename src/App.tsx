@@ -4,9 +4,8 @@ import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import { useState, useEffect } from "react";
 import CustomBootstrapCard from "./CustomBootstrapCard";
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import DetailedCard from "./DetailedCard";
-
-
+import axios from "axios";
+import { ProductService } from "./ProductService";
 
 function makeCards(data: CustomBootstrapCard[]): JSX.Element[] {
   let resultHTML = [] as JSX.Element[];
@@ -30,13 +29,10 @@ function makeCards(data: CustomBootstrapCard[]): JSX.Element[] {
 }
 
 function App() {
-  const [data, setData] = useState([]);
-  function getData() {
-    fetch("http://localhost:3000/random")
-      .then((response) => response.json())
-      .then((result) => setData(result));
-  }
-  useEffect(() => getData(), []);
+
+  const [data, setData] = useState([])
+
+  ProductService.getAllProducts().then((response) => response.data).then((result) => setData(result));
 
   return (
     <Router>
@@ -56,7 +52,6 @@ function App() {
         })}
         </Route>
         <Route exact path="/detailed-card/:card">
-          <DetailedCard/>
         </Route>
         </Switch>
     </div>
