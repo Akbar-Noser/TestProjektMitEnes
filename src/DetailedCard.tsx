@@ -1,3 +1,4 @@
+import { title } from "process";
 import { useParams } from "react-router";
 
 function DetailedCard(id:number) {
